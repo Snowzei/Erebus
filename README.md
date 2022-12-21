@@ -20,14 +20,14 @@ To easily get the libraries needed, run this command:
 
 To use the script, run the following command:
 
-`` Erebus.py image_file -t cut_type ``
+`` python Erebus.py image_file -t cut_type ``
 
 Replace image_file with the file path of the image to be cut, and cut_type with the type of cut to be performed (either "half" or "quarter"). The cut_type argument is optional; if not specified, the image will be cut into halves.
 Examples
 
 To cut an image called "image.jpg" into halves:
 
-`` Erebus.py image.jpg ``
+`` python Erebus.py image.jpg ``
 
 To cut the image into quarters:
 
