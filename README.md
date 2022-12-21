@@ -1,4 +1,4 @@
-# Image Cutter
+# Erebus
 
 This Python script takes an image file and cuts it into half or quarters, saving the sections as new image files.
 
