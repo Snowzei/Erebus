@@ -16,6 +16,7 @@ def cut_image(image_file, cut_type="half"):
     # Open the image file
     try:
         image = Image.open(image_file)
+        image = image.convert('RGB')
     except IOError:
         print("Error opening image file")
         sys.exit()
