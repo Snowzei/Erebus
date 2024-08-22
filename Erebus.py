@@ -2,13 +2,14 @@ import argparse
 import sys
 from PIL import Image
 
-def cut_image(image_file, cut_type="half"):
+
+def cut_image(image_file, quater=False):
     """
     Cut an image file into half or quarters and save the sections as new files.
 
     Parameters:
     - image_file (str): The file path of the image to be cut.
-    - cut_type (str, optional): The type of cut to be performed. Can be "half" or "quarter". Default is "half".
+    - quater (bool, optional): The type of cut to be performed. If true, cut into quaters. If not, cut into halves.
 
     Returns:
     None
@@ -25,7 +26,7 @@ def cut_image(image_file, cut_type="half"):
     width, height = image.size
 
     # Cut the image into half or quarters
-    if cut_type == "quarter":
+    if quater:
         # Cut the image into quarters
         left_top = image.crop((0, 0, width//2, height//2))
         right_top = image.crop((width//2, 0, width, height//2))
@@ -49,19 +50,24 @@ def cut_image(image_file, cut_type="half"):
     # Close the image file
     image.close()
 
+
 def main():
     # Set up the argument parser
-    parser = argparse.ArgumentParser(description="Cut an image file into half or quarters and save the sections as new files.")
-    parser.add_argument("image_file", help="The file path of the image to be cut.")
-    parser.add_argument("-t", "--type", default="half", choices=["half", "quarter"], help="The type of cut to be performed. Can be 'half' or 'quarter'. Default is 'half'.")
+    parser = argparse.ArgumentParser(
+        description="Cut an image file into half or quarters and save the sections as new files.")
+    parser.add_argument(
+        "image_file", help="The file path of the image to be cut.")
+    parser.add_argument("-q", "--quarter", action='store_true',
+                        help="Perform a quarter cut instead of a half cut.")
 
     # Parse the arguments
     args = parser.parse_args()
     image_file = args.image_file
-    cut_type = args.type
+    cut_type = args.quarter
 
     # Cut the image
     cut_image(image_file, cut_type)
+
 
 # Run the main function
 if __name__ == "__main__":
