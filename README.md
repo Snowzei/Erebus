@@ -31,7 +31,7 @@ To cut an image called "image.jpg" into halves:
 
 To cut the image into quarters:
 
-`` Erebus.py image.jpg -t quarter ``
+`` Erebus.py image.jpg -q ``
 
 ## Output
 
